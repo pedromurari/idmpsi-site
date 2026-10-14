@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IDM PSI — Instituto DespertaMente</title>
+  <meta name="description" content="O Instituto DespertaMente está preparando algo especial. Em breve, um novo espaço para educação, saúde mental e desenvolvimento humano. Cadastre-se para ser avisado." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.idmpsi.com.br/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="IDM PSI — Em breve" />
+  <meta property="og:description" content="O Instituto DespertaMente está preparando algo especial. Cadastre-se para ser avisado." />
+  <meta property="og:url" content="https://www.idmpsi.com.br/" />
+  <meta property="og:site_name" content="IDM PSI" />
+  <meta property="og:locale" content="pt_BR" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #00091C;
+      --navy-2: #04122C;
+      --blue: #13316C;
+      --orange: #FAB338;
+      --orange-lt: #F6BB55;
+      --white: #FAFAFA;
+      --gray: #AFB6C2;
+      --muted: rgba(250,250,250,.52);
+      --faint: rgba(250,250,250,.28);
+      --line: rgba(255,255,255,.10);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', sans-serif; background: var(--navy); color: var(--white); min-height: 100vh; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+
+    .page {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      min-height: 100vh; padding: 40px 24px; position: relative;
+    }
+    .page::before {
+      content: ''; position: absolute; top: -30%; right: -15%;
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(250,179,56,.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .page::after {
+      content: ''; position: absolute; bottom: -20%; left: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(19,49,108,.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .content { position: relative; z-index: 1; max-width: 640px; width: 100%; text-align: center; }
+
+    .logo { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 60px; }
+    .logo img { width: 44px; height: 44px; }
+    .logo-txt { font-family: 'Fraunces', Georgia, serif; display: flex; align-items: baseline; gap: 8px; }
+    .logo-idm { font-size: 1.5rem; font-weight: 600; }
+    .logo-psi { font-size: 1.5rem; font-weight: 400; color: var(--orange); font-style: italic; }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 28px;
+      padding: 8px 18px; border: 1px solid rgba(250,179,56,.2); border-radius: 100px;
+      background: rgba(250,179,56,.05);
+    }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
+
+    h1 {
+      font-family: 'Fraunces', Georgia, serif; font-weight: 500;
+      font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.15;
+      margin-bottom: 20px; letter-spacing: -.01em;
+    }
+    h1 em { font-style: italic; color: var(--orange); }
+
+    .subtitle { font-size: 1.05rem; color: var(--gray); line-height: 1.75; margin-bottom: 52px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 48px; }
+    .card {
+      background: var(--navy-2); border: 1px solid var(--line); border-radius: 14px;
+      padding: 32px 24px; cursor: pointer; transition: all .25s ease; text-align: center;
+    }
+    .card:hover { border-color: rgba(250,179,56,.3); transform: translateY(-2px); }
+    .card.active { border-color: var(--orange); background: rgba(250,179,56,.06); }
+    .card-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+    .card-title { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 500; margin-bottom: 6px; }
+    .card-desc { font-size: .8rem; color: var(--muted); line-height: 1.5; }
+
+    .form-area { width: 100%; max-width: 440px; margin: 0 auto; }
+    .form-area[hidden] { display: none !important; }
+    .field { margin-bottom: 14px; text-align: left; }
+    .field label { display: block; font-size: .7rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--white); margin-bottom: 7px; }
+    .field input {
+      width: 100%; padding: 13px 15px; border: 1px solid var(--line); border-radius: 6px;
+      background: rgba(255,255,255,.03); color: var(--white);
+      font-family: 'Inter', sans-serif; font-size: .92rem; transition: border-color .2s; outline: none;
+    }
+    .field input::placeholder { color: rgba(255,255,255,.22); }
+    .field input:focus { border-color: var(--orange); background: rgba(255,255,255,.05); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      width: 100%; padding: 16px 30px; font-family: 'Inter', sans-serif;
+      font-size: .9rem; font-weight: 600; border-radius: 6px; cursor: pointer; border: none;
+      background: linear-gradient(135deg, #FAB338 0%, #F6BB55 100%); color: var(--navy);
+      transition: all .2s ease; margin-top: 6px;
+    }
+    .btn:hover { filter: brightness(1.06); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(250,179,56,.25); }
+    .btn:disabled { opacity: .5; cursor: not-allowed; transform: none; filter: none; box-shadow: none; }
+
+    .form-success {
+      padding: 28px; border: 1px solid rgba(37,211,102,.3); border-radius: 14px;
+      background: rgba(37,211,102,.06); text-align: center;
+    }
+    .form-success p { font-size: .95rem; line-height: 1.7; color: var(--gray); }
+    .form-success strong { color: var(--white); }
+
+    .footer {
+      position: relative; z-index: 1; margin-top: 56px;
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+    }
+    .social { display: flex; gap: 10px; }
+    .soc {
+      width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 6px;
+      display: flex; align-items: center; justify-content: center; color: var(--gray); transition: all .2s;
+    }
+    .soc:hover { border-color: var(--orange); color: var(--orange); }
+    .soc svg { width: 16px; height: 16px; fill: currentColor; }
+    .copy { font-size: .72rem; color: var(--faint); }
+
+    @media (max-width: 500px) {
+      .cards { grid-template-columns: 1fr; }
+      .logo { margin-bottom: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <div class="content">
+    <div class="logo">
+      <img src="/assets/idm-logo.png" alt="IDM PSI" />
+      <div class="logo-txt"><span class="logo-idm">IDM</span><span class="logo-psi">PSI</span></div>
+    </div>
+
+    <div class="badge"><span class="badge-dot"></span> Em construção</div>
+
+    <h1>O despertar está sendo <em>construído</em></h1>
+    <p class="subtitle">Estamos preparando um novo espaço para educação, saúde mental e desenvolvimento humano. Em breve, tudo estará pronto para você.</p>
+
+    <div class="cards">
+      <div class="card" data-tipo="aluno" onclick="selecionar('aluno')">
+        <span class="card-icon">🎓</span>
+        <div class="card-title">Quero ser aluno</div>
+        <div class="card-desc">Receba novidades sobre cursos e formações do IDM PSI</div>
+      </div>
+      <div class="card" data-tipo="franqueado" onclick="selecionar('franqueado')">
+        <span class="card-icon">🏢</span>
+        <div class="card-title">Quero ser franqueado</div>
+        <div class="card-desc">Conheça o modelo de franquia em educação e saúde mental</div>
+      </div>
+    </div>
+
+    <div class="form-area" id="form-area" hidden>
+      <form id="form-cadastro" onsubmit="enviar(event)">
+        <div class="field">
+          <label>Nome completo</label>
+          <input type="text" name="nome" placeholder="Seu nome" required />
+        </div>
+        <div class="field">
+          <label>WhatsApp</label>
+          <input type="tel" name="whatsapp" placeholder="(11) 9 9999-0000" required />
+        </div>
+        <div class="field">
+          <label>E-mail</label>
+          <input type="email" name="email" placeholder="seu@email.com" required />
+        </div>
+        <div class="field">
+          <label>Cidade e Estado</label>
+          <input type="text" name="cidade" placeholder="São Paulo — SP" required />
+        </div>
+        <p id="form-erro" style="font-size:.82rem;color:#f87171;margin-bottom:12px;min-height:1.2em;" role="alert"></p>
+        <button type="submit" class="btn" id="form-btn">Cadastrar meu interesse</button>
+      </form>
+    </div>
+
+    <div id="form-sucesso" class="form-success" hidden>
+      <p><strong>Cadastro recebido!</strong><br>Assim que estivermos prontos, você será o primeiro a saber.</p>
+    </div>
+
+    <div class="footer">
+      <div class="social">
+        <a href="https://www.instagram.com/idmpsi.franquia" target="_blank" class="soc" title="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.2 8.8 2.2 12 2.2zm0 1.94c-3.15 0-3.5.01-4.74.07-.9.04-1.39.2-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.32-.28.81-.32 1.71-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.04.9.2 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.13.81.28 1.71.32 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c.9-.04 1.39-.2 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.32.28-.81.32-1.71.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.04-.9-.2-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.13-.81-.28-1.71-.32-1.24-.06-1.59-.07-4.74-.07zm0 3.3a4.56 4.56 0 1 1 0 9.12 4.56 4.56 0 0 1 0-9.12zm0 7.52a2.96 2.96 0 1 0 0-5.92 2.96 2.96 0 0 0 0 5.92zm5.8-7.74a1.07 1.07 0 1 1-2.14 0 1.07 1.07 0 0 1 2.14 0z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@institutodespertamente" target="_blank" class="soc" title="YouTube">
+          <svg viewBox="0 0 24 24"><path d="M23.5 6.5a3 3 0 0 0-2.1-2.1C19.5 3.9 12 3.9 12 3.9s-7.5 0-9.4.5A3 3 0 0 0 .5 6.5C0 8.4 0 12 0 12s0 3.6.5 5.5a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.5.5-5.5s0-3.6-.5-5.5zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg>
+        </a>
+      </div>
+      <p class="copy">© 2026 IDM PSI — Instituto DespertaMente</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  let tipoSelecionado = null;
+  let enviando = false;
+
+  function selecionar(tipo) {
+    tipoSelecionado = tipo;
+    document.querySelectorAll('.card').forEach(c => c.classList.toggle('active', c.dataset.tipo === tipo));
+    document.getElementById('form-area').hidden = false;
+    document.getElementById('form-sucesso').hidden = true;
+    document.getElementById('form-area').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  async function enviar(e) {
+    e.preventDefault();
+    if (enviando) return;
+    const form = e.target;
+    const erro = document.getElementById('form-erro');
+    const btn = document.getElementById('form-btn');
+    const fd = new FormData(form);
+    const nome = fd.get('nome').toString().trim();
+    const whatsapp = fd.get('whatsapp').toString().trim();
+    const email = fd.get('email').toString().trim();
+    const cidadeEstado = fd.get('cidade').toString().trim();
+    const partes = cidadeEstado.split(/\s*[-—–\/]\s*/);
+
+    if (nome.length < 2) { erro.textContent = 'Informe seu nome.'; return; }
+    if (!whatsapp && !email) { erro.textContent = 'Informe WhatsApp ou e-mail.'; return; }
+
+    enviando = true;
+    btn.disabled = true;
+    btn.textContent = 'Enviando…';
+    erro.textContent = '';
+
+    try {
+      const resp = await fetch('https://bremvrsjmnsvtpgcsgtj.supabase.co/functions/v1/captura-franquia', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome, whatsapp, email,
+          cidade: partes[0] || cidadeEstado,
+          estado: partes[1] || '',
+          motivacao: tipoSelecionado === 'franqueado' ? 'Quero empreender em saúde mental' : 'Quero ser aluno',
+          consentimento: true
+        }),
+        signal: AbortSignal.timeout(12000),
+      });
+      const corpo = await resp.json();
+      if (!resp.ok) throw new Error(corpo.mensagem || 'Não foi possível enviar.');
+      document.getElementById('form-area').hidden = true;
+      document.getElementById('form-sucesso').hidden = false;
+      document.getElementById('form-sucesso').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch (falha) {
+      erro.textContent = falha instanceof Error ? falha.message : 'Não foi possível enviar. Tente novamente.';
+      btn.textContent = 'Cadastrar meu interesse';
+    } finally {
+      enviando = false;
+      btn.disabled = false;
+    }
+  }
+</script>
+
+</body>
+</html>
